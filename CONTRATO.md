@@ -8,6 +8,10 @@ Implementada para gestionar operaciones aritméticas persistentes en la blockcha
 * **`decrement(env: Env) -> u32`**: Reduce el valor almacenado. Utiliza la operación `saturating_sub(1)` para garantizar que, si el contador es 0, no ocurra un error de bajo flujo (*underflow*).
 * **`get(env: Env) -> u32`**: Función de lectura simple que permite consultar el valor actual almacenado en la memoria del contrato.
 * **`reset(env: Env)`**: Función administrativa que sobrescribe el valor de `COUNTER` con 0, reiniciando el estado.
+<img width="961" height="735" alt="image" src="https://github.com/user-attachments/assets/e4c81cba-4c88-4574-8cbd-19dc9db928ef" />
+<img width="961" height="735" alt="image" src="https://github.com/user-attachments/assets/dc16f258-5885-420a-8714-2bb5fd1f525c" />
+<img width="961" height="735" alt="image" src="https://github.com/user-attachments/assets/598a0d91-d4b1-4a12-9229-72f872eb6d68" />
+
 
 ## 2. Lógica de Tokens (Estándar Básico)
 Define el ciclo de vida de los activos digitales mediante las siguientes funciones técnicas:
@@ -16,6 +20,9 @@ Define el ciclo de vida de los activos digitales mediante las siguientes funcion
 * **`balance(env: Env, account: Address) -> u128`**: Función de consulta que accede al mapa de saldos. Implementa `unwrap_or(0)` para asegurar que direcciones nuevas retornen un saldo de cero sin errores.
 * **`total_supply(env: Env) -> u128`**: Recupera el valor global de activos circulantes emitidos por el contrato.
 * **`burn(env: Env, from: Address, amount: u128) -> bool`**: Reduce el saldo de un usuario y el suministro total, garantizando la consistencia mediante el uso de resta saturada.
+
+  <img width="961" height="735" alt="image" src="https://github.com/user-attachments/assets/3f03d28e-8f3a-4cdb-98cc-ed9262258b8f" />
+
 
 ## 3. Implementación Técnica y Seguridad
 Dentro del bloque `impl ContadorContract`, se destaca el uso del objeto `env` para interactuar con el almacenamiento. Se aplicaron patrones de seguridad críticos:
